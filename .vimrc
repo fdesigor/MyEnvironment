@@ -27,6 +27,11 @@ call plug#end()
 " ------------------------------------------------
 set hidden
 set number
+set relativenumber
+set ruler
+set vb
+set shiftwidth=4
+set title
 set tabstop=4
 set laststatus=2
 set noshowmode
