@@ -1,2 +1,2 @@
 # MyEnvironment
-Configurações do meu ambiente de desenvolvimento
+Configuração do meu ambiente de desenvolvimento
