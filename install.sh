@@ -58,6 +58,7 @@ then
   exit 1
 fi
 
+
 echo -e "\e[01;32m"
 echo "# Instalando o vim"
 echo ----------------------------------------------
@@ -70,6 +71,7 @@ then
   echo -e "\e[00m"
   exit 1
 fi
+
 
 echo -e "\e[01;32m"
 echo "# Instalando o zsh"
@@ -142,4 +144,11 @@ then
   exit 1
 fi
 
-#ln -s $(pwd)/.vimrc ~/.vimrc
+
+echo -e "\e[01;32m"
+echo ==============================================
+echo "# Criando links simbólicos"
+echo ==============================================
+echo -e "\e[00m"
+ln -s $(pwd)/config/.vimrc ~/.vimrc
+ln -s $(pwd)/config/.gitconfig ~/.gitconfig
