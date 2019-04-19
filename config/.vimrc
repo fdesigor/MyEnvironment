@@ -18,7 +18,6 @@ endif
 "#################################################
 call plug#begin(expand('~/.vim/plugged'))
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -105,7 +104,7 @@ let g:syntastic_check_on_wq = 0
 "#################################################
 "# Leader Key
 "#################################################
-  let mapleader=" "
+let mapleader=";"
 "#################################################
 "# Mapped Commands
 "#################################################
