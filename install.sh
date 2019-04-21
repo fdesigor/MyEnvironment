@@ -78,20 +78,19 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 rm -f ~/.zshrc
 
 echo "\e[01;32m"
-echo "# Instalando o nvim"
+echo "# Instalando o vim"
 echo ----------------------------------------------
 echo "\e[00m"
-if ! apt install nvim -y
+if ! apt install vim -y
 then
   echo "\e[00;31m"
-  echo "Não foi possível instalar o nvim"
+  echo "Não foi possível instalar o vim"
   echo ----------------------------------------------
   echo "\e[00m"
   exit 1
 fi
 
 rm -f ~/.vimrc
-rm -f ~/.config/nvim/init.vim
 
 echo "\e[01;32m"
 echo "# Instalando o tmux"
@@ -150,6 +149,6 @@ then
 fi
 
 ln -s $(pwd)/config/.gitconfig ~/.gitconfig
-ln -s $(pwd)/config/.vimrc ~/.config/nvim/init.vim
+ln -s $(pwd)/config/.vimrc ~/.vimrc
 ln -s $(pwd)/config/.zshrc ~/.zshrc
 ln -s $(pwd)/config/.tmux.conf ~/.tmux.conf

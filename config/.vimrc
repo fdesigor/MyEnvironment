@@ -19,15 +19,17 @@ Plug 'tomasr/molokai'
 Plug 'itchyny/lightline.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf.vim'
-Plug 'ncm2/ncm2'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Raimondi/delimitMate'
+Plug 'Valloric/YouCompleteMe', {'dir': '~/.vim/bundle/YouCompleteMe', 'do': 'python3 install.py'}
 Plug 'scrooloose/nerdcommenter'
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 
-call plug#end()
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
+call plug#end()
 
 "#################################################
 "# Editor Configurations
@@ -74,15 +76,12 @@ highlight nonText ctermbg=NONE
 " ------------------------------------------------
 set laststatus=2
 let g:lightline = {
-    \ 'colorscheme': 'wombat',
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-     \ },
-    \ 'component_function': {
-    \   'gitbranch': 'fugitive#head'
-    \ }
-\ }
+      \ 'colorscheme': 'powerline',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified' ] ]
+      \ },
+\}
 
 " FuzzyFinder
 " ------------------------------------------------
