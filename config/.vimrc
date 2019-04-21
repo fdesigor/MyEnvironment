@@ -1,8 +1,6 @@
 " Author: Igor Fernandes dos Santos
 " Source: https://github.com/fdesigor/MyEnvironment
 
-set rtp+=~/.fzf
-
 "#################################################
 "# Automatically download vim-plug
 "#################################################
@@ -12,24 +10,21 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-
 "#################################################
 "# Installed Plugins
 "#################################################
 call plug#begin(expand('~/.vim/plugged'))
 
-Plug 'junegunn/fzf.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'scrooloose/syntastic'
-Plug 'scrooloose/nerdcommenter'
-Plug 'vim-scripts/AutoComplPop'
-Plug 'Raimondi/delimitMate'
-Plug 'sheerun/vim-polyglot'
 Plug 'tomasr/molokai'
-
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plug 'itchyny/lightline.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/fzf.vim'
+Plug 'ncm2/ncm2'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Raimondi/delimitMate'
+Plug 'scrooloose/nerdcommenter'
+Plug 'w0rp/ale'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -89,27 +84,32 @@ let g:lightline = {
     \ }
 \ }
 
-" Syntastic Options
+" FuzzyFinder
 " ------------------------------------------------
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+set rtp+=~/.fzf
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" ALE Options
+" ------------------------------------------------
+let g:ale_fixers = {
+\    'javascript': ['eslint'],
+\    'vue': ['eslint'],
+\    'scss': ['prettier']
+\}
+
+let g:ale_fix_on_save = 1
 
 
-"#################################################
-"# Leader Key
-"#################################################
-let mapleader=";"
 "#################################################
 "# Mapped Commands
 "#################################################
-noremap <Leader>h :split<CR>
-noremap <Leader>v :vsplit<CR>
 
-nnoremap <leader>o :NERDTreeToggle<CR>
+" Leader Key
+" ------------------------------------------------
+let mapleader=" "
+
 nnoremap <leader>; :Files<CR>
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>

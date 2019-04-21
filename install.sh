@@ -38,6 +38,8 @@ echo "# Instalando ferramentas"
 echo ==============================================
 echo "\e[00m"
 
+apt install build-essential cmake silversearcher-ag
+
 echo "\e[01;32m"
 echo "# Instalando o git"
 echo ----------------------------------------------
@@ -67,6 +69,7 @@ then
 fi
 
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+chsh -s $(which zsh)
 
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -75,19 +78,20 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 rm -f ~/.zshrc
 
 echo "\e[01;32m"
-echo "# Instalando o vim"
+echo "# Instalando o nvim"
 echo ----------------------------------------------
 echo "\e[00m"
-if ! apt install vim -y
+if ! apt install nvim -y
 then
   echo "\e[00;31m"
-  echo "Não foi possível instalar o vim"
+  echo "Não foi possível instalar o nvim"
   echo ----------------------------------------------
   echo "\e[00m"
   exit 1
 fi
 
 rm -f ~/.vimrc
+rm -f ~/.config/nvim/init.vim
 
 echo "\e[01;32m"
 echo "# Instalando o tmux"
@@ -145,12 +149,7 @@ then
   exit 1
 fi
 
-echo "\e[01;32m"
-echo ==============================================
-echo "# Configurando ambiente"
-echo ==============================================
-echo "\e[00m"
 ln -s $(pwd)/config/.gitconfig ~/.gitconfig
-ln -s $(pwd)/config/.vimrc ~/.vimrc
+ln -s $(pwd)/config/.vimrc ~/.config/nvim/init.vim
 ln -s $(pwd)/config/.zshrc ~/.zshrc
 ln -s $(pwd)/config/.tmux.conf ~/.tmux.conf
