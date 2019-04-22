@@ -97,6 +97,12 @@ let g:ale_fixers = {
 
 let g:ale_fix_on_save = 1
 
+" UltiSnips Options
+" ------------------------------------------------
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsEditSplit="vertical"
 
 "#################################################
 "# Mapped Commands
@@ -104,9 +110,18 @@ let g:ale_fix_on_save = 1
 
 " Leader Key
 " ------------------------------------------------
-let mapleader=" "
+let mapleader="\<space>"
 
-nnoremap <leader>; :Files<CR>
+noremap <Leader>h :<C-u>split<CR>
+noremap <Leader>v :<C-u>vsplit<CR>
+
+nnoremap <Leader>s :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>d yyp
+nnoremap <Leader>o o<esc>
+
+nnoremap <c-p> :Files<CR>
+nnoremap <c-f> :Ag<space>
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
