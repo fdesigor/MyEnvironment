@@ -6,7 +6,7 @@
 "#################################################
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -16,7 +16,6 @@ endif
 call plug#begin(expand('~/.vim/plugged'))
 
 Plug 'tomasr/molokai'
-
 Plug 'itchyny/lightline.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
@@ -26,7 +25,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'vim-scripts/AutoComplPop'
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
+
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 call plug#end()
 
@@ -82,7 +83,7 @@ let g:lightline = {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'modified' ] ]
       \ },
-\}
+      \}
 
 " NERD Commenter Options
 " ------------------------------------------------
@@ -98,12 +99,14 @@ let g:NERDToggleCheckAllLines = 1
 " ALE Options
 " ------------------------------------------------
 let g:ale_fixers = {
-\    'javascript': ['eslint'],
-\    'vue': ['eslint'],
-\    'scss': ['prettier']
-\}
+      \    'javascript': ['eslint'],
+      \    'vue': ['eslint'],
+      \    'scss': ['prettier']
+      \}
 
 let g:ale_fix_on_save = 1
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
 
 " UltiSnips Options
 " ------------------------------------------------
