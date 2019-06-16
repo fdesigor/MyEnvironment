@@ -18,11 +18,12 @@ call plug#begin(expand('~/.vim/plugged'))
 Plug 'tomasr/molokai'
 Plug 'itchyny/lightline.vim'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'junegunn/fzf.vim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate'
-Plug 'Valloric/YouCompleteMe', {'dir': '~/.vim/bundle/YouCompleteMe', 'do': 'python3 install.py'}
 Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'maralla/completor.vim'
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 
@@ -111,6 +112,8 @@ let g:UltiSnipsEditSplit="vertical"
 " Leader Key
 " ------------------------------------------------
 let mapleader="\<space>"
+
+map <C-o> :NERDTreeToggle<CR>
 
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
