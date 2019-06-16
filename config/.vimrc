@@ -16,19 +16,17 @@ endif
 call plug#begin(expand('~/.vim/plugged'))
 
 Plug 'tomasr/molokai'
+
 Plug 'itchyny/lightline.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'maralla/completor.vim'
+Plug 'vim-scripts/AutoComplPop'
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
-
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 call plug#end()
 
@@ -65,6 +63,8 @@ set ignorecase
 set smartcase
 set incsearch
 
+filetype plugin on
+
 " Color Scheme 
 " ------------------------------------------------
 colorscheme molokai
@@ -84,9 +84,16 @@ let g:lightline = {
       \ },
 \}
 
-" FuzzyFinder
+" NERD Commenter Options
 " ------------------------------------------------
-set rtp+=~/.fzf
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDAltDelims_java = 1
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
 
 " ALE Options
 " ------------------------------------------------
@@ -113,18 +120,11 @@ let g:UltiSnipsEditSplit="vertical"
 " ------------------------------------------------
 let mapleader="\<space>"
 
-map <C-o> :NERDTreeToggle<CR>
-
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
 
-nnoremap <Leader>s :w<CR>
-nnoremap <Leader>q :q<CR>
 nnoremap <Leader>d yyp
 nnoremap <Leader>o o<esc>
-
-nnoremap <c-p> :Files<CR>
-nnoremap <c-f> :Ag<space>
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
