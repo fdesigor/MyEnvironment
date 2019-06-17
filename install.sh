@@ -2,6 +2,8 @@
 
 # sudo apt-get install ripgrep
 # sudo apt-get install ctags
+# CocInstall
+# Yarn
 
 echo "\e[01;32m"
 echo ==============================================
@@ -151,7 +153,7 @@ then
   exit 1
 fi
 
-ln -s $(pwd)/config/.gitconfig ~/.gitconfig
-ln -s $(pwd)/config/.vimrc ~/.vimrc
-ln -s $(pwd)/config/.zshrc ~/.zshrc
-ln -s $(pwd)/config/.tmux.conf ~/.tmux.conf
+ln -s $(pwd)/dotfiles/.gitconfig ~/.gitconfig
+ln -s $(pwd)/dotfiles/.vimrc ~/.vimrc
+ln -s $(pwd)/dotfiles/.zshrc ~/.zshrc
+ln -s $(pwd)/dotfiles/.tmux.conf ~/.tmux.conf
