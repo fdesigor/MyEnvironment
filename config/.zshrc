@@ -1,3 +1,5 @@
+export FZF_DEFAULT_COMMAND='rg --files --follow --hidden'
+
 # export ANDROID_HOME=~/Android/Sdk
 # export PATH=$PATH:$ANDROID_HOME/tools
 # export PATH=$PATH:$ANDROID_HOME/platform-tools

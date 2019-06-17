@@ -16,18 +16,16 @@ endif
 call plug#begin(expand('~/.vim/plugged'))
 
 Plug 'tomasr/molokai'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
-Plug 'airblade/vim-gitgutter'
 Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdcommenter'
-Plug 'vim-scripts/AutoComplPop'
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
-
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 call plug#end()
 
@@ -64,7 +62,6 @@ set ignorecase
 set smartcase
 set incsearch
 
-filetype plugin on
 
 " Color Scheme 
 " ------------------------------------------------
@@ -73,6 +70,10 @@ colorscheme molokai
 set t_Co=256
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
+
+" fzf Options
+" ------------------------------------------------
+let g:fzf_command_prefix = 'Fzf'
 
 " Lightline Options
 " ------------------------------------------------
@@ -98,15 +99,17 @@ let g:NERDToggleCheckAllLines = 1
 
 " ALE Options
 " ------------------------------------------------
-let g:ale_fixers = {
-      \    'javascript': ['eslint'],
-      \    'vue': ['eslint'],
-      \    'scss': ['prettier']
-      \}
+let g:ale_fixers = {}
+let g:ale_fixers['javascript'] = ['eslint']
+let g:ale_fixers['json'] = ['prettier']
 
 let g:ale_fix_on_save = 1
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
+let g:ale_sign_error = ">>"
+let g:ale_sign_warning = "--"
+highlight ALEErrorSign ctermfg=9 ctermbg=none guifg=#C30500 guibg=#F5F5F5
+highlight ALEWarningSign ctermfg=11 ctermbg=none guifg=#ED6237 guibg=#F5F5F5
+highlight ALEError ctermbg=none cterm=underline ctermfg=9
+highlight ALEWarning ctermbg=none cterm=underline ctermfg=15
 
 " UltiSnips Options
 " ------------------------------------------------
@@ -123,11 +126,9 @@ let g:UltiSnipsEditSplit="vertical"
 " ------------------------------------------------
 let mapleader="\<space>"
 
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
-
-nnoremap <Leader>d yyp
-nnoremap <Leader>o o<esc>
+nnoremap <Leader>t :FzfTags<CR>
+nnoremap <C-p> :FzfFiles<CR>
+nnoremap <Leader>gt :FzfRg<CR>
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>

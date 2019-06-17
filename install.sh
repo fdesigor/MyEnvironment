@@ -1,5 +1,8 @@
 #!/bin/Bash
 
+# sudo apt-get install ripgrep
+# sudo apt-get install ctags
+
 echo "\e[01;32m"
 echo ==============================================
 echo "# Atualizando repositórios"
