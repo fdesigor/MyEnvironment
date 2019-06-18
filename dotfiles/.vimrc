@@ -18,7 +18,6 @@ call plug#begin(expand('~/.vim/plugged'))
 Plug 'tomasr/molokai'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
-Plug 'itchyny/lightline.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Raimondi/delimitMate'
@@ -81,18 +80,6 @@ highlight nonText ctermbg=NONE
 " fzf Options
 " ------------------------------------------------
 let g:fzf_command_prefix = 'Fzf'
-
-
-" Lightline Options
-" ------------------------------------------------
-set laststatus=2
-let g:lightline = {
-      \ 'colorscheme': 'powerline',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \}
 
 
 " NERD Commenter Options
