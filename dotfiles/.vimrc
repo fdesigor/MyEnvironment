@@ -15,7 +15,7 @@ endif
 "#################################################
 call plug#begin(expand('~/.vim/plugged'))
 
-Plug 'tomasr/molokai'
+Plug 'dracula/vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
@@ -28,12 +28,13 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 call plug#end()
 
 "#################################################
 "# Editor Configurations
-"################################################# 
+"#################################################
 
 " Basic Configurations
 " ------------------------------------------------
@@ -41,14 +42,14 @@ set hidden
 set fileformats=unix,dos,mac
 
 set number
-set relativenumber
 
 set vb
+set cc=80
 
 set smartindent
-set tabstop=4
+set tabstop=2
 set softtabstop=0
-set shiftwidth=4
+set shiftwidth=2
 set expandtab
 
 set noshowmode
@@ -68,10 +69,14 @@ set smartcase
 set incsearch
 
 
-" Color Scheme 
+" Color Scheme
 " ------------------------------------------------
+if (has("termguicolors"))
+ set termguicolors
+endif
+
 syntax on
-colorscheme molokai
+colorscheme dracula
 
 set t_Co=256
 highlight Normal ctermbg=NONE
@@ -95,8 +100,6 @@ let g:lightline = {
       \}
 
 
-
-
 " NERD Commenter Options
 " ------------------------------------------------
 let g:NERDSpaceDelims = 1
@@ -109,11 +112,19 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 
 
+" COC Options
+" ------------------------------------------------
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
+
+
 " ALE Options
 " ------------------------------------------------
 let g:ale_fixers = {}
 let g:ale_fixers['javascript'] = ['eslint']
+let g:ale_fixers['typescript'] = ['prettier', 'tslint']
 let g:ale_fixers['json'] = ['prettier']
+let g:ale_fixers['html'] = ['prettier']
+let g:ale_fixers['vue'] = ['eslint']
 
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = ">>"
@@ -140,9 +151,7 @@ let g:UltiSnipsEditSplit="vertical"
 " ------------------------------------------------
 let mapleader=";"
 
-nnoremap <Leader>t :FzfTags<CR>
-nnoremap <C-p> :FzfFiles<CR>
-nnoremap <Leader>gt :FzfRg<CR>
+nnoremap <C-p> :FZF<CR>
 
 noremap <Up> <NOP>
 noremap <Down> <NOP>
