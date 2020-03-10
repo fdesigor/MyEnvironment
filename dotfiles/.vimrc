@@ -72,15 +72,15 @@ set incsearch
 " Color Scheme
 " ------------------------------------------------
 if (has("termguicolors"))
- set termguicolors
+  " set termguicolors
 endif
 
 syntax on
 colorscheme dracula
 
-set t_Co=256
-highlight Normal ctermbg=NONE
-highlight nonText ctermbg=NONE
+" set t_Co=256
+" highlight Normal ctermbg=NONE
+" highlight nonText ctermbg=NONE
 
 
 " fzf Options
