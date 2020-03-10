@@ -27,6 +27,10 @@ echo "# Instalando ferramentas"
 echo ==============================================
 
 pacman -S cmake
+pacman -S snapd
+systemctl enable --now snapd.socket
+
+
 
 echo ""
 echo "# Instalando o git"
@@ -74,6 +78,18 @@ npm install -g npm
 npm install -g yarn
 
 echo ""
+echo "# Instalando o i3-gaps"
+echo ----------------------------------------------
+if ! pacman -S i3-gaps
+then
+  echo "Não foi possível instalar o i3-gaps"
+  echo ----------------------------------------------
+  exit 1
+fi
+
+rm -rf ~/.config/i3/config
+
+echo ""
 echo "# Instalando o vim"
 echo ----------------------------------------------
 if ! pacman -S vim
@@ -116,10 +132,8 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
 rm -f ~/.zshrc
 
-echo ""
-echo "# Fazendo o link dos arquivos"
-echo ----------------------------------------------
 ln -s $(pwd)/dotfiles/.gitconfig ~/.gitconfig
 ln -s $(pwd)/dotfiles/.vimrc ~/.vimrc
 ln -s $(pwd)/dotfiles/.zshrc ~/.zshrc
 ln -s $(pwd)/dotfiles/.tmux.conf ~/.tmux.conf
+ln -s $(pwd)/dotfiles/i3/config ~/.config/i3/config
