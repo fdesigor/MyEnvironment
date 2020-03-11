@@ -29,7 +29,7 @@ echo ==============================================
 echo ""
 echo "# Instalando Utilitários"
 echo ----------------------------------------------
-if ! pcman -S --noconfirm cmake openssh links upower htop powertop
+if ! pcman -S --noconfirm cmake openssh links upower htop powertop rtorrent
 then
   echo "Não foi possível instalar os utilitários"
   echo ----------------------------------------------
@@ -85,7 +85,7 @@ fi
 echo ""
 echo "# Instalando o git"
 echo ----------------------------------------------
-if ! pacman -S git --noconfirm
+if ! pacman -S --noconfirm git 
 then
   echo "Não foi possível instalar o git"
   echo ----------------------------------------------
@@ -98,7 +98,7 @@ ln -s $(pwd)/dotfiles/.gitconfig ~/.gitconfig
 echo ""
 echo "# Instalando o python3"
 echo ----------------------------------------------
-if ! pacman -S python3 --noconfirm
+if ! pacman -S --noconfirm python3 
 then
   echo "Não foi possível instalar o python3"
   echo ----------------------------------------------
@@ -108,7 +108,7 @@ fi
 echo ""
 echo "# Instalando o docker"
 echo ----------------------------------------------
-if ! pacman -S docker --noconfirm
+if ! pacman -S --noconfirm docker 
 then
   echo "Não foi possível instalar o docker"
   echo ----------------------------------------------
@@ -131,7 +131,7 @@ npm install -g yarn
 echo ""
 echo "# Instalando o vim"
 echo ----------------------------------------------
-if ! pacman -S vim --noconfirm
+if ! pacman -S --noconfirm vim 
 then
   echo "Não foi possível instalar o vim"
   echo ----------------------------------------------
