@@ -26,7 +26,15 @@ echo ==============================================
 echo "# Instalando ferramentas"
 echo ==============================================
 
-pacman -S --noconfirm cmake intel-media-driver vulkan-intel vulkan-icd-loader firefox openssh links upower htop powertop p7zip unzip 
+echo ""
+echo "# Instalando Utilitários"
+echo ----------------------------------------------
+if ! pcman -S --noconfirm cmake openssh links upower htop powertop
+then
+  echo "Não foi possível instalar os utilitários"
+  echo ----------------------------------------------
+  exit 1
+fi
 
 echo ""
 echo "# Instalando o Uncomplicated Firewall"
@@ -44,6 +52,35 @@ ufw enable
 ufw default deny incoming
 ufw default allow outgoing
 
+echo ""
+echo "# Instalando Drivers"
+echo ----------------------------------------------
+if ! pcman -S --noconfirm intel-media-driver vulkan-intel vulkan-icd-loader
+then
+  echo "Não foi possível instalar os drivers"
+  echo ----------------------------------------------
+  exit 1
+fi
+
+echo ""
+echo "# Instalando Compressores de Arquivo"
+echo ----------------------------------------------
+if ! pcman -S --noconfirm p7zip unzip
+then
+  echo "Não foi possível instalar os compressores"
+  echo ----------------------------------------------
+  exit 1
+fi
+
+echo ""
+echo "# Instalando Browser"
+echo ----------------------------------------------
+if ! pcman -S --noconfirm firefox
+then
+  echo "Não foi possível instalar o browser"
+  echo ----------------------------------------------
+  exit 1
+fi
 
 echo ""
 echo "# Instalando o git"
