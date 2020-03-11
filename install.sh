@@ -26,7 +26,24 @@ echo ==============================================
 echo "# Instalando ferramentas"
 echo ==============================================
 
-pacman -S --noconfirm cmake
+pacman -S --noconfirm cmake intel-media-driver vulkan-intel vulkan-icd-loader firefox openssh links upower htop powertop p7zip unzip 
+
+echo ""
+echo "# Instalando o Uncomplicated Firewall"
+echo ----------------------------------------------
+if ! pcman -S --noconfirm ufw
+then
+  echo "Não foi possível instalar o ufw"
+  echo ----------------------------------------------
+  exit 1
+fi
+
+systemctl enable ufw
+systemctl start ufw
+ufw enable
+ufw default deny incoming
+ufw default allow outgoing
+
 
 echo ""
 echo "# Instalando o git"
