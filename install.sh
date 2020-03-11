@@ -43,6 +43,7 @@ then
 fi
 
 rm -f ~/.gitconfig
+ln -s $(pwd)/dotfiles/.gitconfig ~/.gitconfig
 
 echo ""
 echo "# Instalando o python3"
@@ -88,6 +89,7 @@ then
 fi
 
 rm -rf ~/.config/i3/config
+ln -s $(pwd)/dotfiles/i3/config ~/.config/i3/config
 
 echo ""
 echo "# Instalando o vim"
@@ -100,6 +102,7 @@ then
 fi
 
 rm -f ~/.vimrc
+ln -s $(pwd)/dotfiles/.vimrc ~/.vimrc
 
 echo ""
 echo "# Instalando o tmux"
@@ -112,6 +115,7 @@ then
 fi
 
 rm -f ~/.tmux.conf
+ln -s $(pwd)/dotfiles/.tmux.conf ~/.tmux.conf
 
 echo ""
 echo "# Instalando o zsh"
@@ -132,8 +136,4 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
 rm -f ~/.zshrc
 
-ln -s $(pwd)/dotfiles/.gitconfig ~/.gitconfig
-ln -s $(pwd)/dotfiles/.vimrc ~/.vimrc
 ln -s $(pwd)/dotfiles/.zshrc ~/.zshrc
-ln -s $(pwd)/dotfiles/.tmux.conf ~/.tmux.conf
-ln -s $(pwd)/dotfiles/i3/config ~/.config/i3/config
