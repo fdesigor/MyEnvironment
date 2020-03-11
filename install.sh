@@ -4,7 +4,7 @@ echo ==============================================
 echo "# Atualizando repositórios"
 echo ==============================================
 
-if ! pacman -Syy
+if ! pacman -Syy --noconfirm
 then
   echo "Não foi possível atualizar os repositórios."
   echo ----------------------------------------------
@@ -15,7 +15,7 @@ echo ==============================================
 echo "# Atualizando o sistema"
 echo ==============================================
 
-if ! pacman -Syuu
+if ! pacman -Syuu --noconfirm
 then
   echo "Não foi possível atualizar pacotes."
   echo ----------------------------------------------
@@ -26,16 +26,12 @@ echo ==============================================
 echo "# Instalando ferramentas"
 echo ==============================================
 
-pacman -S cmake
-pacman -S snapd
-systemctl enable --now snapd.socket
-
-
+pacman -S --noconfirm cmake
 
 echo ""
 echo "# Instalando o git"
 echo ----------------------------------------------
-if ! pacman -S git
+if ! pacman -S git --noconfirm
 then
   echo "Não foi possível instalar o git"
   echo ----------------------------------------------
@@ -48,7 +44,7 @@ ln -s $(pwd)/dotfiles/.gitconfig ~/.gitconfig
 echo ""
 echo "# Instalando o python3"
 echo ----------------------------------------------
-if ! pacman -S python3
+if ! pacman -S python3 --noconfirm
 then
   echo "Não foi possível instalar o python3"
   echo ----------------------------------------------
@@ -58,7 +54,7 @@ fi
 echo ""
 echo "# Instalando o docker"
 echo ----------------------------------------------
-if ! pacman -S docker
+if ! pacman -S docker --noconfirm
 then
   echo "Não foi possível instalar o docker"
   echo ----------------------------------------------
@@ -68,7 +64,7 @@ fi
 echo ""
 echo "# Instalando o nodejs"
 echo ----------------------------------------------
-if ! pacman -S nodejs npm
+if ! pacman -S nodejs npm --noconfirm
 then
   echo "Não foi possível instalar o nodejs"
   echo ----------------------------------------------
@@ -79,22 +75,9 @@ npm install -g npm
 npm install -g yarn
 
 echo ""
-echo "# Instalando o i3-gaps"
-echo ----------------------------------------------
-if ! pacman -S i3-gaps
-then
-  echo "Não foi possível instalar o i3-gaps"
-  echo ----------------------------------------------
-  exit 1
-fi
-
-rm -rf ~/.config/i3/config
-ln -s $(pwd)/dotfiles/i3/config ~/.config/i3/config
-
-echo ""
 echo "# Instalando o vim"
 echo ----------------------------------------------
-if ! pacman -S vim
+if ! pacman -S vim --noconfirm
 then
   echo "Não foi possível instalar o vim"
   echo ----------------------------------------------
@@ -105,22 +88,9 @@ rm -f ~/.vimrc
 ln -s $(pwd)/dotfiles/.vimrc ~/.vimrc
 
 echo ""
-echo "# Instalando o tmux"
-echo ----------------------------------------------
-if ! pacman -S tmux
-then
-  echo "Não foi possível instalar o tmux"
-  echo ----------------------------------------------
-  exit 1
-fi
-
-rm -f ~/.tmux.conf
-ln -s $(pwd)/dotfiles/.tmux.conf ~/.tmux.conf
-
-echo ""
 echo "# Instalando o zsh"
 echo ----------------------------------------------
-if ! pacman -S zsh
+if ! pacman -S zsh --noconfirm
 then
   echo "Não foi possível instalar o zsh"
   echo ----------------------------------------------
