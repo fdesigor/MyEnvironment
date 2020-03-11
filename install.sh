@@ -37,6 +37,16 @@ then
 fi
 
 echo ""
+echo "# Criando Diretórios de Usuário"
+echo ----------------------------------------------
+if ! pacman -S --noconfirm xdg-user-dirs
+then
+  echo "Não foi possível criar os diretórios"
+  echo ----------------------------------------------
+  exit 1
+fi
+
+echo ""
 echo "# Instalando o Uncomplicated Firewall"
 echo ----------------------------------------------
 if ! pcman -S --noconfirm ufw
@@ -96,34 +106,36 @@ rm -f ~/.gitconfig
 ln -s $(pwd)/dotfiles/.gitconfig ~/.gitconfig
 
 echo ""
-echo "# Instalando o python3"
+echo "# Instalando o Python"
 echo ----------------------------------------------
 if ! pacman -S --noconfirm python3 
 then
-  echo "Não foi possível instalar o python3"
+  echo "Não foi possível instalar o Python"
   echo ----------------------------------------------
   exit 1
 fi
 
 echo ""
-echo "# Instalando o docker"
+echo "# Instalando o Docker"
 echo ----------------------------------------------
 if ! pacman -S --noconfirm docker 
 then
-  echo "Não foi possível instalar o docker"
+  echo "Não foi possível instalar o Docker"
   echo ----------------------------------------------
   exit 1
 fi
 
 echo ""
-echo "# Instalando o nodejs"
+echo "# Instalando o Node.js LTS"
 echo ----------------------------------------------
-if ! pacman -S nodejs npm --noconfirm
+if ! curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
 then
-  echo "Não foi possível instalar o nodejs"
+  echo "Não foi possível instalar o Node.js LTS"
   echo ----------------------------------------------
   exit 1
 fi
+
+nvm install --lts=erbium
 
 npm install -g npm
 npm install -g yarn
@@ -131,7 +143,7 @@ npm install -g yarn
 echo ""
 echo "# Instalando o vim"
 echo ----------------------------------------------
-if ! pacman -S --noconfirm vim 
+if ! pacman -S --noconfirm vim
 then
   echo "Não foi possível instalar o vim"
   echo ----------------------------------------------
@@ -142,11 +154,11 @@ rm -f ~/.vimrc
 ln -s $(pwd)/dotfiles/.vimrc ~/.vimrc
 
 echo ""
-echo "# Instalando o zsh"
+echo "# Instalando o Z shell"
 echo ----------------------------------------------
 if ! pacman -S zsh --noconfirm
 then
-  echo "Não foi possível instalar o zsh"
+  echo "Não foi possível instalar o Z shell"
   echo ----------------------------------------------
   exit 1
 fi
@@ -161,3 +173,8 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 rm -f ~/.zshrc
 
 ln -s $(pwd)/dotfiles/.zshrc ~/.zshrc
+
+echo ==============================================
+echo "# Finalizado"
+echo ==============================================
+https://github.com/exah-io/minimal-arch-linux/blob/master/2_i3.sh
