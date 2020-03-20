@@ -125,10 +125,14 @@ then
   exit 1
 fi
 
+usermod -aG docker $USER
+systemctl enable docker
+systemctl start docker
+
 echo ""
 echo "# Instalando o Node.js LTS"
 echo ----------------------------------------------
-if ! curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+if ! wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 then
   echo "Não foi possível instalar o Node.js LTS"
   echo ----------------------------------------------
