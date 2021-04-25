@@ -8,9 +8,9 @@
 [color]
     ui = auto
 [color "branch"]
-    current = yellow bold
-    local = green bold
-    remote = cyan bold
+    current = green bold
+    local = magenta bold
+    remote = yellow bold
 [color "diff"]
     meta = yellow bold
     frag = magenta bold
